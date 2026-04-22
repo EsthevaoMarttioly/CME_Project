@@ -17,14 +17,10 @@
 # https://github.com/shade-econ/sequence-jacobian
 #
 # Write in the terminal this to install the package:
-# pip install sequence-jacobian
+# pip install -r requirements.txt
 
 
 # Import Packages
-import sys
-import os
-sys.path.append(os.path.dirname(__name__))  # add parent directory to path for imports
-
 import random
 import time
 import numpy as np
@@ -76,7 +72,7 @@ for k in ['Y', 'beta', 'w', 'r', 'pi',
           'L', 'U', 'Tr', 'mu']:
     print(f"  {k:15s} = {ss[k]:.4f}")
 
-### Y = 0.62, beta = 0.94, w = 0.90, U = 0.20, Tr = 0.06
+### Y = 0.58, beta = 0.89, w = 0.90, U = 0.20, Tr = 0.09
 
 
 # Sanity checks
@@ -128,7 +124,7 @@ a_dist = a_dist_employ + a_dist_unempl
 
 # HtM = households at the borrowing constraint
 htm_share = a_dist[0] + a_grid[1]
-print(f"\nHtM share (a = amin): {htm_share:.3f}  ({htm_share*100:.1f}%)")  # 0.5%
+print(f"\nHtM share (a = amin): {htm_share:.3f}  ({htm_share*100:.1f}%)")  # 2.8%
 
  
 # Wealth shares: bottom 50%, middle 40%, top 10%
@@ -232,5 +228,5 @@ print(f"  SS unemployment rate:         {ss['U']:.3f}  ({ss['U']*100:.1f}%)")
 print(f"  PE impact MPC — b:            {iMPC_b[0,0]:.3f}")
 print(f"  GE output mult. - b (impact): {G['Y']['b'][0,0]:.3f}")
 
-# 0.5% HtM Share, 20% Unemployment, and PE Impact = GE Impact = 0.059
+# 2.8% HtM Share, 20% Unemployment, and PE Impact = GE Impact = 0.073
 
